@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subinvoice" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3fee7291-32c2-4ab5-9309-1eae02b19d4e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#EDEDED"/>
+			<bottomPen lineWidth="0.5" lineColor="#EDEDED"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#EDEDED"/>
+			<bottomPen lineWidth="0.5" lineColor="#EDEDED"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#EDEDED"/>
+			<bottomPen lineWidth="0.5" lineColor="#EDEDED"/>
+		</box>
+	</style>
+	<subDataset name="services" uuid="82c46075-536c-42ec-9c6f-193bfdbfa9bb">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="subCategory" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="produtType" class="java.lang.String"/>
+	<field name="transactionStatus" class="java.lang.String"/>
+	<field name="payableAmount" class="java.lang.String"/>
+	<field name="calculatedPrice" class="java.lang.String"/>
+	<field name="product.services" class="java.util.List"/>
+	<field name="product" class="java.lang.Object"/>
+	<field name="product.serviceDate" class="java.time.LocalDate"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="df9980f0-63fb-43f4-a0c8-08c99bf3b777">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a64735f9-878b-420a-b660-6dedd4042e91"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{produtType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="5ca6d85b-81d1-4558-8826-dfd754477ec5"/>
+				<textFieldExpression><![CDATA[$F{transactionStatus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="30" uuid="4d4f8fc4-2b1e-4aa2-a7a2-cb0b2048251e"/>
+				<textFieldExpression><![CDATA[$F{product.serviceDate}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="310" y="0" width="250" height="20" uuid="a2fada90-c5c3-4506-9acd-13bc43e60ee2">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="services" uuid="7ebff241-7870-401a-a34c-f8cb8302a437">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{product.services})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="80" uuid="403b31e9-81cc-43f5-8615-3e40835cc78b">
+						<jr:detailCell style="Table_TD" height="60">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="60" uuid="61670535-f7e9-4059-bb5d-150338575dc4"/>
+								<textFieldExpression><![CDATA[$F{subCategory}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

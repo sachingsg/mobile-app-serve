@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="invoice1" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3f6eaa6b-6cfe-4e50-85a0-4ff88a8a8aa7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="serviceList" uuid="ee812eed-3fdb-465b-b0a8-22de3d29a4cb"/>
+	<parameter name="serviceSubreport" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="gstin" class="java.lang.String"/>
+	<field name="invoiceId" class="java.lang.String"/>
+	<field name="customerName" class="java.lang.String"/>
+	<field name="customerAddress" class="java.lang.String"/>
+	<field name="customerState" class="java.lang.String"/>
+	<field name="customerStateCd" class="java.lang.String"/>
+	<field name="placeOfSupply" class="java.lang.String"/>
+	<field name="orderId" class="java.lang.String"/>
+	<field name="creationDate" class="java.time.LocalDateTime"/>
+	<field name="invoiceDate" class="java.time.LocalDateTime"/>
+	<field name="ofcStateCd" class="java.lang.String"/>
+	<field name="customerId" class="java.lang.String"/>
+	<field name="vehicleType" class="java.lang.String"/>
+	<field name="vehicleRegdNbr" class="java.lang.String"/>
+	<field name="productType" class="java.lang.String"/>
+	<field name="serviceList" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="totalDiscount" class="java.lang.Double"/>
+	<field name="schemeList" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="companyName" class="java.lang.String"/>
+	<field name="companyAddress" class="java.lang.String"/>
+	<field name="bank" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="bank.bankName" class="java.lang.String"/>
+	<field name="bank.branchName" class="java.lang.String"/>
+	<field name="bank.ifsc" class="java.lang.String"/>
+	<field name="bank.account" class="java.lang.String"/>
+	<field name="grandTotal" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="214" splitType="Stretch">
+			<staticText>
+				<reportElement x="420" y="15" width="126" height="20" uuid="458abf90-44d6-4971-8b75-cfbf7594caa5"/>
+				<textElement>
+					<font size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[HIFERK TECHNOLOGIES]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="128" height="60" uuid="6adb336a-d7e2-43db-98de-10fa29e6e084"/>
+				<imageExpression><![CDATA["C:\\Users\\Rajendra\\Desktop\\gsg\\images\\gsg.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="141" y="73" width="405" height="20" uuid="88c516e7-cba2-4f41-8209-cdae2438804a"/>
+				<textFieldExpression><![CDATA[$F{gstin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="73" width="83" height="20" uuid="00481cbb-2d61-4c90-bc17-f1d6decd9bae"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GSTIN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="94" width="405" height="20" uuid="0b6ed9c2-c398-455b-8253-f95a8ae8f892"/>
+				<textFieldExpression><![CDATA[$F{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="93" width="83" height="20" uuid="b12114ab-6873-4048-b94e-80513863f494"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="435" y="134" width="100" height="20" uuid="1e38ca7c-1261-4ce0-b0f8-4e0364566e88"/>
+				<textFieldExpression><![CDATA[$F{orderId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="134" width="83" height="20" uuid="39dc15e5-ed0f-4768-a862-4d130cc3ccb6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="114" width="405" height="20" uuid="c78ff14d-329b-435e-82c0-7632cc7a4bc2"/>
+				<textFieldExpression><![CDATA[$F{companyAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="114" width="83" height="20" uuid="f4ce8d2b-44d9-4403-bc0a-977545c5d86b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="154" width="83" height="20" uuid="9460d814-a85d-44ae-81d4-6183c1edc2ae"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Place of Supply :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="154" width="100" height="20" uuid="e7139c85-4aa1-4350-8a74-484d74c92a74"/>
+				<textFieldExpression><![CDATA[$F{placeOfSupply}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="174" width="83" height="20" uuid="de35b83d-fdf2-44b8-ae3c-416953ca69b2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date of Invoice :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="174" width="100" height="20" uuid="2b336025-2450-4f1d-9205-8a98b4128aaa"/>
+				<textFieldExpression><![CDATA[$F{invoiceDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="194" width="83" height="20" uuid="cb6f8e4b-477c-4903-94ad-141b8ad5eb9f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Request Date :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="194" width="100" height="20" uuid="36ccf141-2793-4ba0-a7f6-ea119678bcf9"/>
+				<textFieldExpression><![CDATA[$F{creationDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="40" width="100" height="20" uuid="193b5455-9b41-4e59-bd6d-12a99a79c197"/>
+				<textFieldExpression><![CDATA[$F{invoiceId}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="260" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="120" width="141" height="20" uuid="afc54784-d8cc-47ca-b7d3-8b3b2f50868f"/>
+				<textElement>
+					<font size="15" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Details of Receiver (Billed to)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="160" width="369" height="20" uuid="837b7919-a4e6-412e-83bd-fe67e74bcb48"/>
+				<textFieldExpression><![CDATA[$F{customerAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="160" width="83" height="20" uuid="765fb682-43dc-4949-a078-0b2535f9740d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="140" width="369" height="20" uuid="63393fc5-b5b2-481b-ba1e-fe42c679a723"/>
+				<textFieldExpression><![CDATA[$F{customerName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="140" width="83" height="20" uuid="3e2724b4-acfc-4ec7-a3ce-49166dfd232e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="200" width="83" height="20" uuid="f8150dbc-7d65-4e83-a090-27685b723ee1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="200" width="100" height="20" uuid="eb272e7c-6957-4687-bb9f-a5c86a637ed3"/>
+				<textFieldExpression><![CDATA[$F{customerId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="220" width="100" height="20" uuid="145a42c9-48e1-41a0-99d4-0dc45c0cabd8"/>
+				<textFieldExpression><![CDATA[$F{vehicleRegdNbr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="220" width="83" height="20" uuid="32b2e343-625a-4b5b-b020-cd4eccf130ea"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registration No :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="240" width="100" height="20" uuid="d8b578ce-defa-4349-9f33-66f832fdaac2"/>
+				<textFieldExpression><![CDATA[$F{vehicleType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="240" width="83" height="20" uuid="96f3463a-4f8c-424a-a19b-fe77c2e33b4c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle Type :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="180" width="83" height="20" uuid="1a9af45a-95fd-4751-a76c-8938cf470310"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[State :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="180" width="100" height="20" uuid="bc8f98c9-e912-46f9-9b1d-17de5898b1fe"/>
+				<textFieldExpression><![CDATA[$F{customerState}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="0" width="522" height="100" uuid="20305119-c481-42de-81bb-9a7e726a4c46"/>
+				<dataSourceExpression><![CDATA[$P{serviceSubreport}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["C:\\Users\\Rajendra\\Desktop\\gsg\\report\\serviceSubReport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="13" y="100" width="83" height="20" uuid="0471f7e2-15e7-4b3a-9246-b5d4e62cd459"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grand Total :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="112" y="100" width="100" height="20" uuid="0ebc9ed4-b187-465a-bf54-feab81c0ec93"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grandTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="366" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="0" width="99" height="23" uuid="e4fc2a3d-cb24-494c-8ec7-34b4fbb335fa"/>
+				<textElement>
+					<font size="15" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Bank Details:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="33" width="83" height="20" uuid="9401fd0e-7665-4d04-8744-65c20cf27a8b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="33" width="394" height="20" uuid="30c0ec7f-2514-4257-91b9-8a923e5305f7"/>
+				<textFieldExpression><![CDATA[$F{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="53" width="83" height="20" uuid="63ae58a8-4b01-41fd-9f64-906353048e90"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="76" width="83" height="20" uuid="d8b1f4f8-2a0f-4dfa-ba7b-8e4dd3412f8c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="76" width="394" height="20" uuid="cf6e5027-9022-4e4f-aa9e-66a024b8ba09"/>
+				<textFieldExpression><![CDATA[$F{bank.branchName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="96" width="83" height="20" uuid="2487562d-5fff-4f28-81e0-7b013da9767a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IFSC Code :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="96" width="207" height="20" uuid="aaec2792-d85e-4a49-a044-af922d83431f"/>
+				<textFieldExpression><![CDATA[$F{bank.ifsc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="116" width="83" height="20" uuid="c8af58c3-f5de-4a99-862c-3dc5ebfd0f2b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank A/C No :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="116" width="100" height="20" uuid="8b8a41c0-147d-42cd-aa49-e327d27b1b12"/>
+				<textFieldExpression><![CDATA[$F{bank.account}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="331" y="218" width="224" height="21" uuid="02291e3b-03a2-427d-bd74-2970ba6af349"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[For, HIFERK TECHNOLOGIES PRIVATE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="429" y="105" width="106" height="102" uuid="3ca78fc1-a315-4339-b071-8095846e2e44"/>
+				<imageExpression><![CDATA["C:\\Users\\Rajendra\\Desktop\\gsg\\images\\stamp.PNG"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="239" width="546" height="106" uuid="60179cf2-1d73-4432-aaae-9a968442e495"/>
+				<imageExpression><![CDATA["C:\\Users\\Rajendra\\Desktop\\gsg\\images\\footer.PNG"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="141" y="56" width="394" height="20" uuid="5fcfd91e-519c-4463-93d0-e64ccee02ef0"/>
+				<textFieldExpression><![CDATA[$F{bank.bankName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

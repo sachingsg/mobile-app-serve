@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="invoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b862ac0f-ef98-46da-add0-bd0430c1b890">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<subDataset name="orderDtls" uuid="ec948987-4a6b-4d7e-b36c-bf4b721c2c6e">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="produtType" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="serviceReport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="schemeReport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="billingName" class="java.lang.String"/>
+	<field name="order.orderDtls" class="java.util.List"/>
+	<field name="order.produtType" class="java.lang.String"/>
+	<field name="order.orderId" class="java.lang.String"/>
+	<field name="order.contactNbr" class="java.lang.String"/>
+	<field name="order.creationDate" class="java.time.LocalDateTime"/>
+	<field name="invoiceId" class="java.lang.String"/>
+	<field name="invoiceDtls" class="java.lang.String"/>
+	<field name="invoiceDate" class="java.time.LocalDateTime"/>
+	<field name="panNo" class="java.lang.String"/>
+	<field name="gsgRegdNo" class="java.lang.String"/>
+	<field name="grandTotal" class="java.math.BigDecimal"/>
+	<field name="billingPhn" class="java.lang.String"/>
+	<field name="billingAddress" class="java.lang.String"/>
+	<field name="location" class="java.lang.Double[]"/>
+	<variable name="variable1" class="java.lang.String" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{grandTotal}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="495" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="91" width="60" height="20" uuid="d12ed855-12fe-40d7-9199-2dd30cdd53bb"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAN No :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="111" width="130" height="20" uuid="38fa0aff-ffe2-41bb-a1b2-7da24821fc4c"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GST Registration No :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="169" width="70" height="15" uuid="9330702e-ce63-46e5-81d3-920e5c57b319"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice ID :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="184" width="95" height="20" uuid="fd8843bb-e075-46bb-8c03-abcac7a8a6d9"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice Details :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="251" width="63" height="20" uuid="3d93f453-d773-46ea-9e22-7c20999c41f0"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order ID :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="271" width="70" height="22" uuid="c0c95328-add1-480e-9a71-2b4cd5d9dec9"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="204" width="81" height="21" uuid="d0fdc31c-21ff-40bc-92c3-1d7b62e94a86"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice Date :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="168" width="150" height="16" uuid="2dd40400-4bce-4204-a7b0-b8e5eb0053f3"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoiceId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="184" width="150" height="20" uuid="49523d1c-e182-430d-85f9-dbcdcc8ea478"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoiceDtls}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy-MM-dd HH:mm">
+				<reportElement x="80" y="204" width="150" height="20" uuid="8e8cdddd-5d98-4df1-9af5-6930ebadeff2"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoiceDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="92" width="80" height="19" uuid="59dca89f-df7e-43b7-a7ee-c80dcb1ad231"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{panNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="111" width="130" height="20" uuid="1f6afd44-895b-4137-a5dc-87fcb16df73e"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gsgRegdNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="251" width="135" height="20" uuid="31405f21-19da-4e4f-bc1b-c51885412228"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{order.orderId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="271" width="138" height="22" uuid="c549ccfd-316b-4bf1-8d6a-2c2930f6ae47"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{order.creationDate}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="358" y="2" width="193" height="17" uuid="f1c873e9-4aa8-416a-a75c-b51266eb2957"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{order.orderId}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement x="394" y="20" width="117" height="12" uuid="e4ad3b39-3a15-4a2f-9bcf-9260729a9924"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{order.orderId}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="2" y="0" width="128" height="70" uuid="becf02ae-144e-4e8f-a5fd-c08aa8548027"/>
+				<imageExpression><![CDATA["src/main/resources/images/gsg.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="380" y="50" width="172" height="20" uuid="69da65c9-f8f0-4a37-8323-dfc9046832b0"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{billingName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="71" width="149" height="21" uuid="be5cc011-9919-4c1a-ba1a-720e6565e5f6"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{billingPhn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="102" width="149" height="78" uuid="397636ed-da42-4c67-9c18-06780820a441"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{billingAddress}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="75" y="300" width="400" height="150" uuid="2328769a-3e51-4320-9e34-e314acbb469b"/>
+				<c:map xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<c:latitudeExpression><![CDATA[45.433968f]]></c:latitudeExpression>
+					<c:longitudeExpression><![CDATA[12.337967f]]></c:longitudeExpression>
+					<c:zoomExpression><![CDATA[8]]></c:zoomExpression>
+				</c:map>
+			</componentElement>
+			<textField>
+				<reportElement x="160" y="460" width="100" height="30" uuid="8579d2ff-d8fa-4e54-8551-8f47502f0806"/>
+				<textFieldExpression><![CDATA[$F{order.orderDtls.get(0).product.location}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="120" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{order.produtType}.equals("SERVICE") || $F{order.produtType}.equals("EMERGENCY")]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="5" width="100" height="20" uuid="2a86822b-a82b-4b06-b9c6-e620eb7f0f7e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Service Details]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="2" y="28" width="550" height="26" uuid="7d16554a-600d-45bb-a91e-6fd9300c961a"/>
+			</rectangle>
+			<subreport>
+				<reportElement x="2" y="30" width="550" height="14" isPrintWhenDetailOverflows="true" uuid="9dcc539d-7755-4144-9d90-ee61dbc71bb0"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{order.orderDtls})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{serviceReport}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="63">
+			<printWhenExpression><![CDATA[$F{order.produtType}.equals("SCHEME")]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="db05fd3e-15db-469c-975a-f0d9c428de94"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Scheme Details]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="20" width="551" height="27" uuid="6c42f303-2753-41ec-a36f-80a6ca828188"/>
+			</rectangle>
+			<subreport>
+				<reportElement x="2" y="23" width="550" height="15" uuid="3a6bd207-dd74-48d1-aa11-d47337b32ab8"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{order.orderDtls})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{schemeReport}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="133">
+			<staticText>
+				<reportElement x="350" y="40" width="189" height="20" uuid="a1fced92-3360-4bc1-b612-fe729586f63b"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hiferk Technologies Pvt. Ltd.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="113" width="101" height="20" uuid="a57da2e8-b294-44d5-8024-d018ec524019"/>
+				<text><![CDATA[Authorized Signatory]]></text>
+			</staticText>
+			<image>
+				<reportElement x="455" y="7" width="8" height="16" uuid="a704854d-a720-4235-bce0-569ffceb5082"/>
+				<imageExpression><![CDATA["src/main/resources/images/rupeefonts.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="465" y="6" width="100" height="20" uuid="eb431324-5347-4e17-b61e-0bbc91ab7dfc"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grandTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
